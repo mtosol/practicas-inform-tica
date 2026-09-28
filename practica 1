@@ -187,5 +187,5 @@ int main ()
 	printf ("el nombre de la madre es %s %s %s\n", nm, am1, am2);
 	prinft ("el nombre de la hija, por tango será: %s %s %s", nh, ah1, ah2);
 
-	return 0
+	return 0;
 }
