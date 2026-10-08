@@ -23,7 +23,7 @@ int main()
 		
 		printf ("dime tu nombre\n");
 		scanf ("%s", nombre);
-		printf("apellidos"); scanf(%s%s", ap1, ap2);
+		printf("apellidos"); scanf("%s%s", ap1, ap2);
 		printf ("dime tu edad\n");
 		scanf ("%d", &edad);
 		printf ("dime tu sexo (M/F):\n");
@@ -41,3 +41,51 @@ int main()
 		return 0;
 		
 	}
+
+/*Ejercicio 2.
+Implementar un programa que pregunte al usuario por su nombre (40 letras máximo pudiendo ser compuesto), sus dos apellidos (20 letras máximo cada uno), su NIF y su edad. Estos datos deberán guardarse en un fichero de texto con nombre "usuario.txt", dejando el nombre en la primera línea, los apellidos en la segunda y el NIF y la edad en la tercera línea.
+Ejemplo de fichero generado:
+María José
+García López
+20123456H 19
+
+Comprobar que el fichero se genera correctamente. Para ello, visualizar su contenido desde cualquier editor de texto (Ej.: el bloc de notas o el propio Dev-C++).
+*/
+
+
+#include <stdio.h>
+
+int main() {
+    char nombre[41], ap1[21], ap2[21], nif[10];
+    int edad;
+
+    FILE *f;
+
+    printf("Introduce tu nombre completo: ");
+    gets(nombre);
+
+    printf("apellidos"); scanf("%s%s", ap1, ap2);
+   
+    printf("Introduce tu NIF: ");
+    scanf("%s", nif);
+
+    printf("Introduce tu edad: ");
+    scanf("%d", &edad);
+
+    f = fopen("usuario.txt", "w");
+    if (f == NULL) {
+        printf("Error al crear el fichero.\n");
+        return 1;
+    }
+
+    fprintf(f, "%s \n", nombre);
+    fprintf(f, "%s \n", ap1);
+    fprintf(f, "%s \n", ap2);
+    fprintf(f, "%s \n %d\n", nif, edad);
+
+    fclose(f);
+
+    printf("Fichero generado correctamente.\n");
+
+    return 0;
+}
