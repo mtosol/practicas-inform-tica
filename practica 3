@@ -1,0 +1,43 @@
+/*Ejercicio 1.
+Escribir un programa que pida al usuario nombre (40 letras máximo y puede ser compuesto), dos apellidos (20 letras máximo cada uno), edad y sexo (H/M). Luego se deberán mostrar por pantalla los datos leídos. Leer primero los apellidos, luego el nombre, después la edad y por último el sexo.
+Un ejemplo de una posible salida por pantalla sería:
+
+Apellidos: García Millán
+Nombre: Ana María
+Edad: 19
+Sexo (H/M): M
+
+Nombre: Ana María
+Primer apellido: García
+Segundo apellido: Millán
+Edad: 19
+Sexo: Mujer
+*/
+
+
+# include <stdio.h>
+int main()
+	{
+		char nombre[41], ap1[21], ap2[21], sexo;
+		int edad;
+		
+		printf ("dime tu nombre\n");
+		scanf ("%s", nombre);
+		printf("apellidos"); scanf(%s%s", ap1, ap2);
+		printf ("dime tu edad\n");
+		scanf ("%d", &edad);
+		printf ("dime tu sexo (M/F):\n");
+		scanf (" %c", &sexo);
+    
+    printf("Apellidos: %s %s\nNombre: %s\nEdad: %d\n",
+           ap1, ap2, nombre, edad);
+
+    if ( sexo == 'h' || sexo == 'H')
+      printf (Hombre\n);
+    else 
+      printf("Mujer\n");
+
+    getch();
+		return 0;
+		
+	}
