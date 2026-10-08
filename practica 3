@@ -188,3 +188,98 @@ int main()
 
     return 0;
 }
+
+
+/*Ejercicio 6*/
+
+/*
+ Práctica 2. Ejercicio 1.
+ Programa para sacar la cuenta de una comida en un pequeño bar.
+*/
+
+#include <stdio.h>
+#include <conio.h>
+
+#define PVP_CHORIZO 3.10
+#define PVP_ATUN    3.40
+#define PVP_AGUA    1.50
+#define PVP_COLA    2.25
+#define PVP_NARANJA 2.10
+
+int main()
+{
+    int n_chorizo, n_atun, n_agua, n_cola, n_naranja;
+    float total, entrega, devolucion;
+    
+    /* Entrada de datos */
+    printf("Bocadillos de chorizo: ");
+    scanf("%d", &n_chorizo);
+    printf("Bocadillos de atun: ");
+    scanf("%d", &n_atun);
+    printf("Botellas de agua: ");
+    scanf("%d", &n_agua);
+    printf("Refrescos de cola: ");
+    scanf("%d", &n_cola);
+    printf("Refrescos de naranja: ");
+    scanf("%d", &n_naranja);
+
+    /* Cálculo del total, pido entega y cálculo de la devolucion */
+    total = n_chorizo * PVP_CHORIZO + n_atun * PVP_ATUN
+     + n_agua * PVP_AGUA + n_cola* PVP_COLA + n_naranja * PVP_NARANJA;
+     
+	printf("total: %f euros.\n", &total);
+	printf("entrega? \n");
+	scanf("%f", &entrega);
+	devolucion = entrega-total;
+
+    /* Salida de datos y creación del fichero */
+   
+    
+    FILE *f;
+    f = fopen("cuenta.txt", "w");
+    
+     if (n_chorizo == 1)
+     	{fprintf(f, "&d bocadillo de chorizo a PVP_CHORIZO euros son PVP_CHORIZO", n_chorizo);
+     }
+     else 
+     	{fprintf(f, "&d bocadillo de chorizo a PVP_CHORIZO euros son PVP_CHORIZO*n_chorizo", n_chorizo, PVP_CHORIZO*n_chorizo);
+     
+}
+     	
+     	if (n_atun == 1)
+     	{fprintf(f, "&d bocadillo de atun a PVP_ATUN euros son PVP_ATUN", n_atun);
+     }
+     else 
+     	{fprintf(f, "&d bocadillo de atun a PVP_ATUN euros son PVP_ATUN*n_atun", n_atun, PVP_ATUN*n_atun);
+ }
+     	
+     		if (n_agua == 1)
+     	{fprintf(f, "&d botella de agua a PVP_AGUA euros son PVP_AGUA", n_agua);
+     }
+     else 
+     	{fprintf(f, "&d botellas de agua a PVP_AGUA euros son PVP_AGUA*n_agua", n_agua, PVP_AGUA*n_agua);
+ }
+  	if (n_atun == 1)
+     	{fprintf(f, "&d refresco de cola a PVP_COLA euros son PVP_COLA", n_cola);
+     }
+     else 
+     	{fprintf(f, "&d refrescos de cola a PVP_COLA euros son PVP_COLA*n_cola", n_cola, PVP_COLA*n_cola);
+ }
+  
+  	if (n_naranja == 1)
+     	{fprintf(f, "&d refresco de naranja a PVP_NARANJA euros son PVP_NARANJA", n_naranja);
+     }
+     else 
+     	{fprintf(f, "&dr refrescos de naranja a PVP_NARANJA euros son PVP_NARANJA*n_naranja", n_naranja, PVP_NARANJA*n_naranja);
+ }
+  
+     	
+     fprintf(f, "TOTAL: %f euros.\n", total);
+     fprintf(f, "Entrega: %f euros.\n", entrega);
+     fprintf(f, "Devolucion: %f.\n", devolucion);
+     
+     fclose(f);
+    
+    getch();
+    return 0;
+}
