@@ -89,3 +89,102 @@ int main() {
 
     return 0;
 }
+
+/*Ejercicio 3.
+Desarrollar un programa que lea los datos almacenados en el fichero generado en el ejercicio anterior. Este programa deberá leer el nombre, los dos apellidos, el NIF y la edad almacenados en "usuario.txt" y mostrarlos por pantalla.
+Para el ejemplo mostrado anteriormente, la salida por pantalla sería:
+
+Nombre: María José
+Primer apellido: García
+Segundo apellido: López
+NIF: 20123456H
+Edad: 19
+*/
+
+
+
+#include <stdio.h>
+int main()
+{
+  char nombre[41], ap1[21], ap2[21], nif[10];
+    int edad;
+
+    FILE *f;
+
+    printf("Introduce tu nombre completo: ");
+    gets(nombre);
+
+    printf("apellidos: "); scanf("%s%s", ap1, ap2);
+   
+    printf("Introduce tu NIF: ");
+    scanf("%s", nif);
+
+    printf("Introduce tu edad: ");
+    scanf("%d", &edad);
+
+    f = fopen("usuario.txt", "w");
+    if (f == NULL) {
+        printf("Error al crear el fichero.\n");
+        return 1;
+    }
+
+    fprintf(f, "%s \n", nombre);
+    fprintf(f, "%s \n", ap1);
+    fprintf(f, "%s \n", ap2);
+    fprintf(f, "%s \n %d\n", nif, edad);
+
+    fclose(f);
+
+    printf("Fichero generado correctamente.\n");
+	printf("Nombre: %s \n", nombre);
+    printf("Apellido: %s \n", ap1);
+    printf("Apellido: %s \n", ap2);
+    printf("NIF y edad: %s \n %d\n", nif, edad);
+
+    return 0;
+}
+
+
+/*Ejercicio 4.
+*/
+
+#include <stdio.h>
+int main()
+{
+  char nombre[41], ap1[21], ap2[21], nif[10];
+    int edad;
+
+    FILE *f;
+
+    printf("Introduce tu nombre completo: ");
+    gets(nombre);
+
+    printf("apellidos: "); scanf("%s%s", ap1, ap2);
+   
+    printf("Introduce tu NIF: ");
+    scanf("%s", nif);
+
+    printf("Introduce tu edad: ");
+    scanf("%d", &edad);
+
+    f = fopen("usuario.txt", "a");
+    if (f == NULL) {
+        printf("Error al crear el fichero.\n");
+        return 1;
+    }
+
+    fprintf(f, "%s \n", nombre);
+    fprintf(f, "%s \n", ap1);
+    fprintf(f, "%s \n", ap2);
+    fprintf(f, "%s \n %d\n", nif, edad);
+
+    fclose(f);
+
+    printf("Fichero generado correctamente.\n");
+	printf("Nombre: %s \n", nombre);
+    printf("Apellido: %s \n", ap1);
+    printf("Apellido: %s \n", ap2);
+    printf("NIF y edad: %s \n %d\n", nif, edad);
+
+    return 0;
+}
