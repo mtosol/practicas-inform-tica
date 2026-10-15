@@ -169,3 +169,33 @@ int main()
 	
 	return 0;
 }
+
+
+
+
+
+/* EJERCICO 9 */
+
+#include <stdio.h>
+
+int main()
+{
+	char operacion;
+	float n1, n2, resultado;
+	
+	printf ("CALCULADORA\n\n------------\n");
+	scanf ("%f", &n1);
+	printf (" ");
+	scanf ("%c", &operacion);
+	printf (" ");
+	scanf ("%f", &n2);
+	
+	if (operacion == '+'){
+		printf("%2.f", resultado = n1 + n2);
+	}
+	
+	if (operacion == '-'){
+		printf("%2.f", resultado = n1 - n2);
+	}
+	return 0;
+}
