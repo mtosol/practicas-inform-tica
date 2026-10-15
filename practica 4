@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+	char a;
+	float n1, n2, calculo;
+	printf ("CALCULADORA\n 1.sumar\n 2.restar\n 3.multiplicar\n 4.dividir\n\n Opcion:\n");
+	scanf ("\n%c", a);
+	
+	switch (a) {
+		case 1:
+			printf ("sumar");
+			printf ("dime que numeros quieres sumar");
+			scanf ("%f%f", &n1, &n2);
+			printf ("la suma de %f y %f es %f", n1, n2, calculo = n1+n2);
+			break;
+		case 2: 
+			printf ("restar");
+			printf ("dime que numeros quieres restar");
+			scanf ("%f%f", &n1, &n2);
+			printf ("la resta de %f y %f es %f", n1, n2, calculo = n1-n2);
+			break;
+		case 3:
+			printf ("multiplicar");
+			printf ("dime que numeros quieres multiplicar");
+			scanf ("%f%f", &n1, &n2);
+			printf ("el producto de %f y %f es %f", n1, n2, calculo = n1*n2);
+			break;
+		case 4:
+			printf ("dividir");
+			printf ("dime que numeros quieres dividir");
+			scanf ("%f%f", &n1, &n2);
+				if (n2=0){
+					printf ("la solucion es infinita, porque el denominador es cero");
+				}
+				else {
+					printf ("la suma de %f y %f es %f", n1, n2, calculo = n1+n2);
+				}
+			break;
+		default:
+			printf ("eleccion erronea");
+			
+	}
+	
+	return 0;	
+	
+}
