@@ -1,3 +1,7 @@
+/* EJERCICIO 2 */
+
+
+
 #include <stdio.h>
 
 int main()
@@ -44,4 +48,124 @@ int main()
 	
 	return 0;	
 	
+}
+
+
+
+/* EJERCICIO 3 */
+
+#include <stdio.h>
+
+int main(){
+	float nota;
+	char asignatura[80], fichero[30];
+	
+
+	
+	printf ("nombre de la asignatura:");
+	gets(asignatura);
+	printf ("nota obtenida");
+	scanf ("%d", &nota);
+	printf ("en que fichero lo guardo?");
+	scanf ("%s", fichero);
+	
+	FILE*f;
+	f = fopen(fichero, "w");
+
+	return 0;
+}
+
+
+
+
+/* EJERCICIO 4 */
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	
+	char nombrepalo[10], valornumero[20];
+	int numeropalo, numero;
+	
+	printf ("carta");
+	scanf ("%d%d", &numero, &numeropalo);
+	
+	if (numeropalo ==1 ){
+		strcpy(nombrepalo, "oros");
+	}
+	else if  (numeropalo ==2 ){
+		strcpy(nombrepalo, "copas");	
+		}
+	else if  (numeropalo ==3 ){
+		strcpy(nombrepalo, "espadas");	
+		}
+	else if  (numeropalo ==4 ){
+		strcpy(nombrepalo, "bastos");	
+		}
+	
+	if (numero < 2)
+        strcpy(valornumero, "ERROR");
+    else
+        sprintf(valornumero, "%d", numero);
+
+    printf("%s de %s\n", valornumero, nombrepalo);
+
+    return 0;
+}
+
+
+
+/* EJERCICO 6 */
+
+
+#include <stdio.h>
+
+int main()
+{
+	float nteo, nlab, nprac, nfinal;
+	char cualitativa[15], estado[15];
+	
+	printf ("Nota del examen de teoria:\n");
+	scanf ("%f", &nteo);
+	printf ("Nota de laboratorio:\n");
+	scanf ("%f", &nlab);
+	printf ("Nota del examen de practicas:\n");
+	scanf ("%f", &nprac);
+	
+	if (nteo < 4){
+		printf ("no llegas el minimo en el examen de teoria\n");
+		}
+
+	if (nlab < 5){
+		printf ("no llegas el minimo en el examen de laboratorio\n");
+	}
+	
+	if (nprac < 1.25){
+		printf ("no llegas el minimo en el examen de practica\n");
+	}
+	
+	nfinal = 0.5*nteo + 0.15*nlab + 0.35*nprac;
+	
+	printf ("Nota final: %2.f" , nfinal);
+	
+	if (nfinal < 5){
+		printf (" Suspenso");
+	}
+	else if (nfinal>=5 || nfinal<7){
+		printf (" Aprobado");
+	}
+	else if (nfinal>=7 || nfinal<9){
+		printf (" Notable");
+	}
+	else if (nfinal>=9 || nfinal<10){
+		printf (" Sobresaliente");
+	}
+	else if (nfinal=10){
+		printf (" Matricula de honor");
+	}
+	
+	
+	return 0;
 }
