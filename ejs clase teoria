@@ -1,0 +1,51 @@
+/* 
+5.3 Programa que lea nombre (completo) de una persona, su edad y su sexo
+(una letra) y que luego "lo añada" en el fichero "datos.txt".
+Formato del fichero:
+ Nombre: Federico Gutiérrez Garcia
+ Edad: 25 (mayor de edad)
+ Sexo: HOMBRE
+ Nombre: ... */
+ 
+ 
+ #include <stdio.h>
+ 
+ int main () {
+ char nombre[30], sexo;
+ int edad; 
+ FILE *f;
+ 
+ printf ("dime tu nombre completo: ");
+ scanf ("\n"); 
+ gets(nombre);
+ 
+ printf("dime tu edad: ");
+ scanf("%d", &edad);
+ 
+ printf("dime tu sexo: ");
+ scanf("\n%c", &sexo);
+ 
+ f=fopen ("datos.txt", "a");
+ if (f==NULL){
+ 	printf("error al abrir fichero\n");
+ 	return 1;
+ }
+ 
+ fprintf(f, "nombre: %s\n", nombre);
+ fprintf(f, "edad: %d", edad);
+ 
+ if (edad>=18){
+ 	fprintf(f, "mayor de edad\n");
+ }
+ else fprintf (f,"menor de edad\n");
+ 
+ if (sexo == 'H'){
+ fprintf(f, "sexo: hombre\n");
+ }
+ else fprintf (f, "sexo: mujer\n");
+ 
+ fclose(f);
+ 
+ return 0;
+  
+ }
