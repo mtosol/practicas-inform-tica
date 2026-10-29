@@ -30,16 +30,21 @@ El programa debe asegurarse que el usuario introduzca datos coherentes (el sexo 
 #include <stdio.h>
 int main ()
 {
-	char nombre[30], sexo, nif[9], genero[10];
+	char nombre[40], sexo, nif[9];
 	int edad;
 	float creditos;
 	
-	printf("nombre: ");
-	scanf("%s", nombre);
-	printf("NIF: ");
-	scanf("%s", nif);
-	printf("sexo (H/M): ");
-	scanf("\n%c", &sexo);
+	printf("nombre: "); gets(nombre);
+	printf("NIF: "); scanf("%s", nif);
+	
+do {
+	printf("sexo (H/M): "); scanf("\n%c", &sexo);
+	if (sexo !='H' && sexo !='h' && sexo !='M' && sexo !='m')
+		printf("sexo incorrecto, \n sexo (H/M): "); scanf("\n%c", &sexo);
+} while (sexo !='H' && sexo !='h' && sexo !='M' && sexo !='m');
+
+
+do while para todos los demas tb !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	printf("edad: ");
 	scanf("%d", &edad);
 	printf("creditos matriculados: ");
@@ -66,3 +71,47 @@ int main ()
 	return 0;
 }
 
+
+/*EJERCICIO 1 MATLAB PARTE C*/
+
+
+#include <stdio.h>
+
+int main()
+{
+    float a, b, c;
+    float vi, vf, inc;
+    float x, valor;
+
+    printf("Evaluacion del polinomio a*x^2 + b*x + c\n\n");
+
+    printf("Indique los valores para los coeficientes a, b y c: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    printf("\nPolinomio de trabajo: %.2f * x^2 + %.2f * x + %.2f\n\n", a, b, c);
+
+    printf("Indique el valor inicial, final y el incremento para la x: ");
+    scanf("%f %f %f", &vi, &vf, &inc);
+
+    FILE *fichero;
+
+    fichero = fopen("formula.txt", "w");
+
+    if (fichero == NULL)
+    {
+        printf("Error al abrir el fichero\n");
+        return 1;
+    }
+
+    for (x = vi; x <= vf; x += inc)
+    {
+        valor = a*x*x + b*x + c;
+        fprintf(fichero, "%f %f\n", x, valor);
+    }
+
+    fclose(fichero);
+
+    printf("\nFichero generado correctamente.\n");
+
+    return 0;
+}
