@@ -22,3 +22,47 @@ int main ()
 }
 
 
+/*Ejercicio 2.
+Escribir un programa que pida la ficha de un alumno y la muestre por pantalla. Dicha ficha estará formada por su nombre, NIF, sexo (H/M), edad y créditos matriculados.
+El programa debe asegurarse que el usuario introduzca datos coherentes (el sexo debe ser H o M y la edad y los créditos números no negativos).
+*/
+
+#include <stdio.h>
+int main ()
+{
+	char nombre[30], sexo, nif[9], genero[10];
+	int edad;
+	float creditos;
+	
+	printf("nombre: ");
+	scanf("%s", nombre);
+	printf("NIF: ");
+	scanf("%s", nif);
+	printf("sexo (H/M): ");
+	scanf("\n%c", &sexo);
+	printf("edad: ");
+	scanf("%d", &edad);
+	printf("creditos matriculados: ");
+	scanf("%f", &creditos);
+	
+	printf("Nombre: %s	NIF: %s ", nombre, nif);
+	
+	if (sexo=='h'||sexo=='H')
+	printf("Sexo: hombre ");
+	
+	if (sexo=='m'||sexo=='M')
+	printf("Sexo: mujer ");
+	
+	if(edad<0)
+		printf("Error al dar la edad. La edad no puede ser negativa. ");
+	else
+		printf("Edad: %d	", edad);
+		
+	if(edad<0)
+		printf("Error al dar los creditos. Los creditos no pueden ser negativos. ");
+	else
+		printf("Creditos: %d	", creditos);	
+	
+	return 0;
+}
+
