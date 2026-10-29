@@ -1,0 +1,24 @@
+/*Ejercicio 1.
+Desarrollar un programa para calcular el factorial de un número entrado por teclado.
+(El factorial de un número n es n! = 1·2·3·...·n)
+*/
+
+#include <stdio.h>
+int main ()
+{
+	int i, n, fact;
+	
+	printf ("dime un numero: ");
+	scanf ("%d", &n);
+	
+	fact=1;
+	for (i=n; i>0 ; i-- ){
+		fact*=i;
+}
+
+	printf ("%d! es %d",n, fact);
+	
+	return 0;
+}
+
+
